@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-i18n="s160">Online Order - Restaurant ATA</title>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&amp;family=Pacifico&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet"/>
+<link href="v.css" rel="stylesheet"/>
+<link href="assets/favicon.svg" rel="icon"/><link href="assets/css/site.css?v=2" rel="stylesheet"/><script defer="" src="assets/js/config.js"></script><script defer="" src="assets/js/translations.js?v=2"></script><script defer="" src="assets/js/site.js?v=2"></script><script defer="" src="assets/js/order.js?v=2"></script></head>
+<body style="background-color: #f8f9fa"><noscript>Enable JavaScript to change language, manage privacy preferences and use the interactive forms.</noscript>
+<!-- Navbar & Hero Header -->
+<div class="container-fluid position-relative p-0">
+<nav class="navbar navbar-expand-xl navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+<a class="navbar-brand p-0" href="index.html">
+<h1 class="text-primary m-0">
+<i class="fa fa-utensils me-3"></i><span data-i18n="s019">ATA</span> </h1>
+</a>
+<div aria-label="Website language" class="ata-language-switch" data-i18n-aria-label="language" role="group"><button aria-label="English" aria-pressed="true" data-set-language="en" lang="en" type="button">EN</button><button aria-label="Македонски" aria-pressed="false" data-set-language="mk" lang="mk" type="button">МК</button></div><button aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarCollapse" data-bs-toggle="collapse" data-i18n-aria-label="a000" type="button"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarCollapse">
+<div class="navbar-nav ms-auto py-0 pe-4">
+<a class="nav-item nav-link" href="index.html"><span data-i18n="s020">Home</span></a>
+<a class="nav-item nav-link" href="index.html#about"><span data-i18n="s021">About</span></a>
+<a class="nav-item nav-link" href="index.html#service"><span data-i18n="s022">Service</span></a>
+<a class="nav-item nav-link" href="index.html#menu"><span data-i18n="s023">Menu</span></a>
+<a class="nav-item nav-link" href="index.html#reservation"><span data-i18n="s024">Reservation</span></a>
+<a class="nav-item nav-link" href="index.html#contact"><span data-i18n="s025">Contact</span></a>
+</div>
+<a class="btn btn-primary py-2 px-4" href="index.html#reservation"><span data-i18n="s026">Book A Table</span></a>
+</div>
+</nav>
+<div class="container-fluid py-5 bg-dark hero-header mb-5">
+<div class="container my-5 py-5 text-center">
+<h1 class="display-3 text-white mb-3 animate__animated animate__slideInDown"> <span data-i18n="s161">Express Online Ordering</span> </h1>
+<p class="text-white-50 mx-auto" style="max-width: 600px"> <span data-i18n="s162">Get your favorite hot meals delivered to your doorstep within 30 minutes.</span> </p>
+</div>
+</div>
+</div>
+<div class="container py-5">
+<div class="row g-5">
+<div class="col-lg-8">
+<div class="bg-white p-4 rounded shadow-sm">
+<h4 class="mb-4 fw-bold text-dark">
+<i class="fa fa-shopping-basket text-primary me-2"></i><span data-i18n="s163">Your cart</span> </h4>
+<div class="table-responsive">
+<table class="table align-middle">
+<thead>
+<tr>
+<th><span data-i18n="s164">Product</span></th>
+<th><span data-i18n="s165">Price</span></th>
+<th class="text-center"><span data-i18n="s166">Quantity</span></th>
+<th><span data-i18n="s167">Total</span></th>
+<th></th>
+</tr>
+</thead>
+<tbody id="cart-items-body"></tbody>
+</table>
+</div>
+<div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
+<h5 class="fw-bold"><span data-i18n="s168">Total to pay:</span></h5>
+<h4 class="text-primary fw-bold" id="cart-total-price">$0.00</h4>
+</div>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="bg-dark p-4 rounded shadow text-white">
+<h4 class="mb-4 ff-secondary text-primary">
+<i class="fa fa-truck me-2"></i><span data-i18n="s169">Delivery details</span> </h4>
+<form id="order-form">
+<div class="mb-3">
+<input aria-label="Your name" class="form-control" data-i18n-aria-label="a012" data-i18n-placeholder="a012" id="order-name" placeholder="Your name" required="" type="text"/>
+</div>
+<div class="mb-3">
+<input aria-label="Delivery address" class="form-control" data-i18n-aria-label="a013" data-i18n-placeholder="a013" id="order-address" placeholder="Delivery address" required="" type="text"/>
+</div>
+<button class="btn btn-primary w-100 fw-bold py-3" type="submit"> <span data-i18n="s170">CONFIRM ORDER</span> </button>
+</form>
+<div class="mt-4 p-3 bg-secondary rounded d-none text-center" id="tracking-box">
+<h5 class="text-warning fw-bold" id="tracking-title">
+<i class="fa fa-spinner fa-spin me-2" id="status-icon"></i><span data-i18n="s171">Order status</span> </h5>
+<p class="mb-0 fw-bold fs-5" id="tracking-status"> <span data-i18n="s172">Received in the kitchen…</span> </p>
+<small class="text-white-50"><span data-i18n="s173">Estimated time: 30 min.</span></small>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Minimal Footer -->
+<div class="container-fluid bg-dark text-light footer pt-5 mt-5 text-center">
+<div class="container py-3">
+<p class="mb-0">
+          © <a class="border-bottom" href="#"><span data-i18n="s053">Restaurant ATA</span></a><span data-i18n="s054">, All Rights Reserved.</span> </p>
+<div class="ata-footer-settings"><button class="ata-text-button" data-i18n="cookieSettings" data-open-cookies="" type="button">Cookie settings</button><button class="ata-text-button" data-i18n="privacyTitle" data-open-privacy="" type="button">Privacy &amp; browser storage</button></div></div>
+</div>
+</body>
+</html>
