@@ -3,6 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    cpus: "0.25"
+    mem_limit: 256m
     environment:
       NODE_ENV: production
       PORT: "3000"
